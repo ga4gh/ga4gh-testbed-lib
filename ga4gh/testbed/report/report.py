@@ -1,11 +1,12 @@
 import datetime
 import json
 from ga4gh.testbed.report.constants import SCHEMA_NAME, SCHEMA_VERSION, TIMESTAMP_FORMAT
-from ga4gh.testbed.report.status import Status
+from ga4gh.testbed.report.phase import Phase
 from ga4gh.testbed.mixins.has_status import HasStatus
 from ga4gh.testbed.mixins.has_timestamps import HasTimestamps
+from ga4gh.testbed.mixins.has_summary import HasSummary
 
-class Report(HasStatus, HasTimestamps):
+class Report(HasTimestamps, HasStatus, HasSummary):
 
     FINAL_ATTRS = set([
         "schema_name",
@@ -20,15 +21,13 @@ class Report(HasStatus, HasTimestamps):
         self.testbed_description = ""
         self.platform_name = ""
         self.platform_description = ""
-        self.start_time = ""
-        self.end_time = ""
-        # self.input_parameters = ""
-        self.status = Status.UNKNOWN
-        # self.summary = ""
-        self.phases = []
+        self.input_parameters = {}
+        
+        self.initialize_timestamps()
+        self.initialize_status()
+        self.initialize_summary()
 
-        self.set_start_time_now()
-        self.set_end_time_now()
+        self.phases = []
     
     def __setattr__(self, name, value):
         if hasattr(self, name):
@@ -72,6 +71,26 @@ class Report(HasStatus, HasTimestamps):
     
     def get_platform_description(self):
         return self.platform_description
+    
+    def add_input_parameter(self, key, value):
+        self.input_parameters[key] = value
+    
+    def add_secure_input_parameter(self, key):
+        self.input_parameters[key] = "[SECURE]"
+    
+    def remove_input_parameter(self, key):
+        del self.input_parameters[key]
+    
+    def add_phase(self):
+        phase = Phase()
+        self.phases.append(phase)
+        return phase
+    
+    def get_phases(self):
+        return self.phases
+    
+    def get_phase(self, i):
+        return self.phases[i]
     
     def to_json(self, pretty=False):
         default_lambda = lambda o: o.__dict__
