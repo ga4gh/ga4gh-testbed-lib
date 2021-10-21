@@ -18,12 +18,14 @@ class Report(HasStatus, HasTimestamps):
         self.testbed_name = ""
         self.testbed_version = ""
         self.testbed_description = ""
+        self.platform_name = ""
+        self.platform_description = ""
         self.start_time = ""
         self.end_time = ""
         # self.input_parameters = ""
         self.status = Status.UNKNOWN
         # self.summary = ""
-        # self.results = ""
+        self.phases = []
 
         self.set_start_time_now()
         self.set_end_time_now()
@@ -58,6 +60,18 @@ class Report(HasStatus, HasTimestamps):
     
     def get_testbed_description(self):
         return self.testbed_description
+    
+    def set_platform_name(self, platform_name):
+        self.platform_name = platform_name
+    
+    def get_platform_name(self):
+        return self.platform_name
+    
+    def set_platform_description(self, platform_description):
+        self.platform_description = platform_description
+    
+    def get_platform_description(self):
+        return self.platform_description
     
     def to_json(self, pretty=False):
         default_lambda = lambda o: o.__dict__
