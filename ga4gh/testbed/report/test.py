@@ -1,3 +1,4 @@
+import pytest
 from ga4gh.testbed.mixins.has_status import HasStatus
 from ga4gh.testbed.mixins.has_timestamps import HasTimestamps
 from ga4gh.testbed.mixins.has_summary import HasSummary
@@ -5,6 +6,9 @@ from ga4gh.testbed.mixins.has_message import HasMessage
 from ga4gh.testbed.report.case import Case
 
 class Test(HasTimestamps, HasStatus, HasSummary, HasMessage):
+
+    SUMMARY_SUBCOMPONENT_ATTR = "cases"
+    SUMMARY_SUBCOMPONENT_CLASS = Case
     
     def __init__(self):
         self.test_name = ""

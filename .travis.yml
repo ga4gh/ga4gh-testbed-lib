@@ -1,0 +1,18 @@
+dist: xenial
+addons:
+  apt:
+    sources:
+      - travis-ci/sqlite3
+    packages:
+      - sqlite3
+    update: true
+git:
+  depth: false
+language: java
+jdk: oraclejdk11
+before_script:
+  - export PYTHONPATH=`pwd`
+script: pytest --cov ga4gh/ --cov-report=term-missing
+after_success:
+    - "./gradlew jacocoTestReport"
+    - bash <(curl -s https://codecov.io/bash)

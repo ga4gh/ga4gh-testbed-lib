@@ -5,6 +5,9 @@ from ga4gh.testbed.report.test import Test
 
 class Phase(HasTimestamps, HasStatus, HasSummary):
 
+    SUMMARY_SUBCOMPONENT_ATTR = "tests"
+    SUMMARY_SUBCOMPONENT_CLASS = Test
+
     def __init__(self):
         self.phase_name = ""
         self.phase_description = ""

@@ -19,3 +19,6 @@ class HasStatus(object):
     
     def set_status_skip(self):
         self.status = Status.SKIP
+    
+    def get_status(self):
+        return self.status

@@ -36,3 +36,10 @@ class Summary(object):
 
     def get_skipped(self):
         return self.skipped
+    
+    def aggregate_summary(self, summary):
+        self.increment_unknown(n=summary.get_unknown())
+        self.increment_passed(n=summary.get_passed())
+        self.increment_warned(n=summary.get_warned())
+        self.increment_failed(n=summary.get_failed())
+        self.increment_skipped(n=summary.get_skipped())
