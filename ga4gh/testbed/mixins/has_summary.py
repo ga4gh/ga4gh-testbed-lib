@@ -4,3 +4,6 @@ class HasSummary(object):
 
     def initialize_summary(self):
         self.summary = Summary()
+    
+    def summarize(self):
+        pass
