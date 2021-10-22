@@ -1,6 +1,6 @@
 class HasMessage(object):
 
-    def initialize_message(self):
+    def __initialize_message(self):
         self.message = ""
     
     def set_message(self, message):

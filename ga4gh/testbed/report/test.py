@@ -5,7 +5,7 @@ from ga4gh.testbed.mixins.has_summary import HasSummary
 from ga4gh.testbed.mixins.has_message import HasMessage
 from ga4gh.testbed.report.case import Case
 
-class Test(HasTimestamps, HasStatus, HasSummary, HasMessage):
+class Test(HasTimestamps, HasStatus, HasSummary):
 
     SUMMARY_SUBCOMPONENT_ATTR = "cases"
     SUMMARY_SUBCOMPONENT_CLASS = Case
@@ -17,7 +17,6 @@ class Test(HasTimestamps, HasStatus, HasSummary, HasMessage):
         self._HasTimestamps__initialize_timestamps()
         self._HasStatus__initialize_status()
         self._HasSummary__initialize_summary()
-        self.initialize_message()
         
         self.cases = []
     

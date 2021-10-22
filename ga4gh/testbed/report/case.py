@@ -27,7 +27,7 @@ class Case(HasTimestamps, HasStatus, HasMessage):
 
         self._HasTimestamps__initialize_timestamps()
         self._HasStatus__initialize_status()
-        self.initialize_message()
+        self._HasMessage__initialize_message()
     
     def set_case_name(self, case_name):
         self.case_name = case_name
