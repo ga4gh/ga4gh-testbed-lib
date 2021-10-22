@@ -136,6 +136,11 @@ class Report(HasTimestamps, HasStatus, HasSummary):
 
         del self.input_parameters[key]
     
+    def get_input_parameter(self, key):
+        if key in self.input_parameters.keys():
+            return self.input_parameters[key]
+        return None
+    
     def add_phase(self):
         """Add a new phase object to the list
 
