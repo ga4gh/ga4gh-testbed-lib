@@ -14,7 +14,7 @@ class HasTimestamps(object):
         self.start_time = start_time
     
     def set_start_time_now(self):
-        self.set_start_time(self.timestamp_now())
+        self.set_start_time(self.__timestamp_now())
     
     def get_start_time(self):
         return self.start_time
@@ -23,4 +23,7 @@ class HasTimestamps(object):
         self.end_time = end_time
 
     def set_end_time_now(self):
-        self.set_end_time(self.timestamp_now())
+        self.set_end_time(self.__timestamp_now())
+    
+    def get_end_time(self):
+        return self.end_time
