@@ -41,6 +41,9 @@ class Report(HasTimestamps, HasStatus, HasSummary):
         "schema_version"
     ])
 
+    SUMMARY_SUBCOMPONENT_ATTR = "phases"
+    SUMMARY_SUBCOMPONENT_CLASS = Phase
+
     def __init__(self):
         self.schema_name = SCHEMA_NAME
         self.schema_version = SCHEMA_VERSION
@@ -51,9 +54,9 @@ class Report(HasTimestamps, HasStatus, HasSummary):
         self.platform_description = ""
         self.input_parameters = {}
         
-        self.initialize_timestamps()
-        self.initialize_status()
-        self.initialize_summary()
+        self._HasTimestamps__initialize_timestamps()
+        self._HasStatus__initialize_status()
+        self._HasSummary__initialize_summary()
 
         self.phases = []
     
@@ -158,6 +161,17 @@ class Report(HasTimestamps, HasStatus, HasSummary):
         """
 
         return self.phases[i]
+    
+    def finalize(self):
+        self._HasSummary__summarize()
+        self.__nested_set_status()
+    
+    def __nested_set_status(self):
+        for phase in self.get_phases():
+            for test in phase.get_tests():
+                test._HasSummary__set_status_from_summary()
+            phase._HasSummary__set_status_from_summary()
+        self._HasSummary__set_status_from_summary()
     
     def to_json(self, pretty=False):
         """Ouput the entire report as JSON

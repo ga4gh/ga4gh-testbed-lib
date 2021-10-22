@@ -14,9 +14,9 @@ class Test(HasTimestamps, HasStatus, HasSummary, HasMessage):
         self.test_name = ""
         self.test_description = ""
         
-        self.initialize_timestamps()
-        self.initialize_status()
-        self.initialize_summary()
+        self._HasTimestamps__initialize_timestamps()
+        self._HasStatus__initialize_status()
+        self._HasSummary__initialize_summary()
         self.initialize_message()
         
         self.cases = []

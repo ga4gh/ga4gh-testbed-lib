@@ -2,7 +2,7 @@ from ga4gh.testbed.report.status import Status
 
 class HasStatus(object):
 
-    def initialize_status(self):
+    def __initialize_status(self):
         self.status = Status.UNKNOWN
 
     def set_status_unknown(self):

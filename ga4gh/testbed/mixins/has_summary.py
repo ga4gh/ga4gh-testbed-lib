@@ -11,13 +11,13 @@ class HasSummary(object):
         Status.SKIP: "increment_skipped"
     }
 
-    def initialize_summary(self):
-        self.summary = Summary()
-    
     def get_summary(self):
         return self.summary
     
-    def summarize(self):
+    def __initialize_summary(self):
+        self.summary = Summary()
+    
+    def __summarize(self):
         self_class = self.__class__
         subcomponent_attr = getattr(self_class, "SUMMARY_SUBCOMPONENT_ATTR")
         subcomponent_class = getattr(self_class, "SUMMARY_SUBCOMPONENT_CLASS")
@@ -28,9 +28,27 @@ class HasSummary(object):
         else:
             self.__summarize_atomic_list(subcomponent_list)
     
+    def __set_status_from_summary(self):
+        total = self.summary.get_total()
+
+        if self.summary.get_failed() > 0:
+            return self.set_status_fail()
+        
+        if self.summary.get_unknown() > 0:
+            return self.set_status_unknown()
+        
+        if self.summary.get_warned() > 0:
+            return self.set_status_warn()
+        
+        if self.summary.get_skipped() == total:
+            return self.set_status_skip()
+        
+        if self.summary.get_passed() + self.summary.get_skipped() == total:
+            return self.set_status_pass()
+    
     def __summarize_recursion(self, subcomponent_list):
         for subcomponent in subcomponent_list:
-            subcomponent.summarize()
+            subcomponent.__summarize()
             self.summary.aggregate_summary(subcomponent.get_summary())
     
     def __summarize_atomic_list(self, subcomponent_list):

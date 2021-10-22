@@ -28,9 +28,9 @@ class Phase(HasTimestamps, HasStatus, HasSummary):
         self.phase_name = ""
         self.phase_description = ""
 
-        self.initialize_timestamps()
-        self.initialize_status()
-        self.initialize_summary()
+        self._HasTimestamps__initialize_timestamps()
+        self._HasStatus__initialize_status()
+        self._HasSummary__initialize_summary()
 
         self.tests = []
     
