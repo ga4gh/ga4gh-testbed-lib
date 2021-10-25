@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://json-schema.org/draft-04/schema#",
+  "title": "ga4ghTestbedReport",
+  "type": "string",
+  "$ref": "ga4gh-testbed-report.json#/definitions/ga4ghTestbedReport",
+  "definitions": {
+    "ga4ghTestbedReport": {
+      "type": "object",
+      "properties": {
+        "schema_name": {
+          "type": "string",
+          "enum": ["ga4gh-testbed-report"]
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": ["0.1.0"]
+        },
+        "testbed_name": {
+          "type": "string"
+        },
+        "testbed_version": {
+          "type": "string"
+        },
+        "testbed_description": {
+          "type": "string"
+        },
+        "platform_name": {
+          "type": "string"
+        },
+        "platform_description": {
+          "type": "string"
+        },
+        "input_parameters": {
+          "type": "object"
+        },
+        "start_time": {
+          "$ref": "ga4gh-testbed-timestamp.json#/definitions/ga4ghTestbedTimestamp"
+        },
+        "end_time": {
+          "$ref": "ga4gh-testbed-timestamp.json#/definitions/ga4ghTestbedTimestamp"
+        },
+        "status": {
+          "$ref": "ga4gh-testbed-status.json#/definitions/ga4ghTestbedStatus"
+        },
+        "summary": {
+          "$ref": "ga4gh-testbed-summary.json#/definitions/ga4ghTestbedSummary"
+        },
+        "phases": {
+          "type": "array",
+          "items": {
+            "$ref": "ga4gh-testbed-phase.json#/definitions/ga4ghTestbedPhase"
+          }
+
+        }
+      },
+      "required": [
+        "schema_name",
+        "schema_version",
+        "testbed_name",
+        "testbed_version",
+        "testbed_description",
+        "platform_name",
+        "platform_description",
+        "input_parameters",
+        "start_time",
+        "end_time",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

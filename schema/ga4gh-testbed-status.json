@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://json-schema.org/draft-04/schema#",
+  "title": "ga4ghTestbedStatus",
+  "type": "string",
+  "$ref": "ga4gh-testbed-status.json#/definitions/ga4ghTestbedStatus",
+  "definitions": {
+    "ga4ghTestbedStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "PASS",
+        "WARN",
+        "FAIL",
+        "SKIP"
+      ]
+    }
+  }
+}

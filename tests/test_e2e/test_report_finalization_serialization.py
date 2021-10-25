@@ -1,6 +1,9 @@
 import pytest
 import json
 import os
+from jsonschema import validate, RefResolver
+from jsonschema.exceptions import ValidationError, RefResolutionError
+import yaml
 from ga4gh.testbed.report.report import Report
 
 inputs = "i," \
@@ -192,3 +195,18 @@ def test_report_finalization_serialization(i,
 
     assert actual_json_pretty == exp_json_pretty
     assert actual_json_regular == exp_json_regular
+
+    # assert that the produced report conforms to the JSON schema
+
+    schema_dir = os.path.join(os.getcwd(), "schema")
+    resolver = RefResolver('file://' + schema_dir + "/", None)
+    report_schema_file = os.path.join(schema_dir, "ga4gh-testbed-report.json")
+
+    schema_json = None
+    with open(report_schema_file, "r") as stream:
+        schema_json = yaml.safe_load(stream)
+    
+    try:
+        validate(instance=json_obj, schema=schema_json, resolver=resolver)
+    except ValidationError as e:
+        raise AssertionError("report JSON does not conform to schema: " + e.message) 

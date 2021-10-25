@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://json-schema.org/draft-04/schema#",
+  "title": "ga4ghTestbedTest",
+  "type": "string",
+  "$ref": "ga4gh-testbed-test.yaml#/definitions/ga4ghTestbedTest",
+  "definitions": {
+    "ga4ghTestbedTest": {
+      "type": "object",
+      "properties": {
+        "test_name": {
+          "type": "string"
+        },
+        "test_description": {
+          "type": "string"
+        },
+        "start_time": {
+          "$ref": "ga4gh-testbed-timestamp.json#/definitions/ga4ghTestbedTimestamp"
+        },
+        "end_time": {
+          "$ref": "ga4gh-testbed-timestamp.json#/definitions/ga4ghTestbedTimestamp"
+        },
+        "status": {
+          "$ref": "ga4gh-testbed-status.json#/definitions/ga4ghTestbedStatus"
+        },
+        "summary": {
+          "$ref": "ga4gh-testbed-summary.json#/definitions/ga4ghTestbedSummary"
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "$ref": "ga4gh-testbed-case.json#/definitions/ga4ghTestbedCase"
+          }
+        }
+      },
+      "required": [
+        "test_name",
+        "test_description",
+        "start_time",
+        "end_time",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

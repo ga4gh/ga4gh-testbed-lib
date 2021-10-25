@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://json-schema.org/draft-04/schema#",
+  "title": "ga4ghTestbedSummary",
+  "type": "string",
+  "$ref": "ga4gh-testbed-summary.json#/definitions/ga4ghTestbedSummary",
+  "definitions": {
+    "ga4ghTestbedSummary": {
+      "type": "object",
+      "properties": {
+        "unknown": {
+          "type": "integer"
+        },
+        "passed": {
+          "type": "integer"
+        },
+        "warned": {
+          "type": "integer"
+        },
+        "failed": {
+          "type": "integer"
+        },
+        "skipped": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "unknown",
+        "passed",
+        "warned",
+        "failed",
+        "skipped"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://json-schema.org/draft-04/schema#",
+  "title": "ga4ghTestbedTimestamp",
+  "type": "string",
+  "$ref": "ga4gh-testbed-timestamp.json#/definitions/ga4ghTestbedTimestamp",
+  "definitions": {
+    "ga4ghTestbedTimestamp": {
+      "type": "string"
+    }
+  }
+}
