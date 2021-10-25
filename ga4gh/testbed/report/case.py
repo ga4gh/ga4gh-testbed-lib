@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""This module defines the "Case" class"""
+"""Defines the "Case" class"""
 
 from ga4gh.testbed.mixins.has_status import HasStatus
 from ga4gh.testbed.mixins.has_timestamps import HasTimestamps
@@ -36,6 +36,12 @@ class Case(HasTimestamps, HasStatus, HasMessage):
         return self.case_name
 
     def add_log_message(self, log_message):
+        """Add a new log message to the list
+
+        Args:
+            log_message (str): new log message
+        """
+
         self.log_messages.append(log_message)
     
     def get_log_messages(self):

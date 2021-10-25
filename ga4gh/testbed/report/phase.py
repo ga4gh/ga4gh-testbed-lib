@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""This module defines the "Phase" class"""
+"""Defines the "Phase" class"""
 
 from ga4gh.testbed.mixins.has_timestamps import HasTimestamps
 from ga4gh.testbed.mixins.has_status import HasStatus

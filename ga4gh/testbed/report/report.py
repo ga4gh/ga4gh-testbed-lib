@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""This module defines the "Report" class"""
+"""Defines the "Report" class"""
 
 import datetime
 import json
@@ -137,6 +137,18 @@ class Report(HasTimestamps, HasStatus, HasSummary):
         del self.input_parameters[key]
     
     def get_input_parameter(self, key):
+        """Retrieve the value of a single input parameter by its key
+
+        For secure variables added to the input parameter dict, the returned 
+        value will be "[SECURE]".
+
+        Args:
+            key (str): name/key of the parameter of interest
+        
+        Returns:
+            (str): value of the specified input parameter
+        """
+
         if key in self.input_parameters.keys():
             return self.input_parameters[key]
         return None
@@ -168,10 +180,25 @@ class Report(HasTimestamps, HasStatus, HasSummary):
         return self.phases[i]
     
     def finalize(self):
+        """Finalize the statuses and summaries of report and all subcomponents
+
+        The status/summary of the report and individual subcomponents (phases,
+        tests) should not be set manually throughout the program. Rather,
+        this finalization step populates and aggregates the summaries of each
+        subcomponent based on the statuses of all the cases.
+        """
+
         self._HasSummary__summarize()
         self.__nested_set_status()
     
     def __nested_set_status(self):
+        """Sets the status of the report and all of its phases and tests
+
+        The status of the report and individual subcomponents (phases, tests)
+        should not be set manually throughout the program. Rather, this step
+        sets the status of each of these components based on the summaries.
+        """
+
         for phase in self.get_phases():
             for test in phase.get_tests():
                 test._HasSummary__set_status_from_summary()
