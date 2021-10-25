@@ -1,7 +1,6 @@
 dist: xenial
 language: python
 python:
-  - "3.6"
   - "3.7"
   - "3.8"
   - "3.9"
@@ -11,4 +10,7 @@ install:
   - python -m pip install -r requirements_test.txt
 before_script:
   - export PYTHONPATH=`pwd`
-script: pytest --cov ga4gh/ --cov-report=term-missing tests/
+script:
+  - pytest --cov ga4gh/ --cov-report=term-missing tests/
+after_success:
+  - coveralls
