@@ -1,7 +1,7 @@
 import setuptools
 
 NAME = "ga4gh-testbed-lib"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 AUTHOR = "Jeremy Adams"
 EMAIL = "jeremy.adams@ga4gh.org"
 
