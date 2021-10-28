@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Defines the "Test" class"""
 
-import pytest
 from ga4gh.testbed.mixins.has_status import HasStatus
 from ga4gh.testbed.mixins.has_timestamps import HasTimestamps
 from ga4gh.testbed.mixins.has_summary import HasSummary
