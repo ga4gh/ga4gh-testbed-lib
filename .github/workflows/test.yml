@@ -9,6 +9,7 @@ jobs:
           - 3.7
           - 3.8
           - 3.9
+          - '3.10'
     name: Test on Python v${{ matrix.python-version }} 
     steps:
     - name: Checkout
