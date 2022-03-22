@@ -48,6 +48,7 @@
                         "failed": 0,
                         "skipped": 1
                     },
+                    "message": "",
                     "cases": [
                         {
                             "case_name": "Get e. coli",
@@ -82,6 +83,7 @@
                         "failed": 0,
                         "skipped": 0
                     },
+                    "message": "",
                     "cases": [
                         {
                             "case_name": "List bacterial sequences",
@@ -132,6 +134,7 @@
                         "failed": 1,
                         "skipped": 0
                     },
+                    "message": "",
                     "cases": [
                         {
                             "case_name": "Get synonymous mutation",
@@ -166,6 +169,7 @@
                         "failed": 0,
                         "skipped": 2
                     },
+                    "message": "",
                     "cases": [
                         {
                             "case_name": "List synonymous mutations",
