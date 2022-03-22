@@ -7,7 +7,7 @@ from ga4gh.testbed.mixins.has_summary import HasSummary
 from ga4gh.testbed.mixins.has_message import HasMessage
 from ga4gh.testbed.report.case import Case
 
-class Test(HasTimestamps, HasStatus, HasSummary):
+class Test(HasTimestamps, HasStatus, HasSummary, HasMessage):
     """A single test within the reporting hierarchy, contains multiple cases
 
     Immediate subcomponent of a test "Phase". Represents a single test with

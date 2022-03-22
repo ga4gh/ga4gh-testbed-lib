@@ -26,6 +26,9 @@
         "summary": {
           "$ref": "ga4gh-testbed-summary.json#/definitions/ga4ghTestbedSummary"
         },
+        "message": {
+          "type": "string"
+        },
         "cases": {
           "type": "array",
           "items": {
