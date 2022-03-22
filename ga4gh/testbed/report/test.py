@@ -30,6 +30,7 @@ class Test(HasTimestamps, HasStatus, HasSummary):
         self._HasTimestamps__initialize_timestamps()
         self._HasStatus__initialize_status()
         self._HasSummary__initialize_summary()
+        self._HasMessage__initialize_message()
         
         self.cases = []
     
