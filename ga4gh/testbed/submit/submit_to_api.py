@@ -11,5 +11,5 @@ class Submit():
 
     def submit_report(self):
         header = {"GA4GH-TestbedReportSeriesId": self.series_id, "GA4GH-TestbedReportSeriesToken": self.series_token}
-        submit_repuest = requests.post(self.url, headers=header ,json=self.report)
-        return submit_repuest.status_code
+        submit_request = requests.post(self.url, headers=header ,json=self.report)
+        return submit_request.status_code
