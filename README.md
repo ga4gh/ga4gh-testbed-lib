@@ -57,5 +57,8 @@ python -m pytest --cov
 
 ## Changelog
 
+### v0.2.0
+* Able to submit reports to Testbed API via standard `POST` request
+
 ### v0.1.2
 * Test level entity now has a `message` attribute for capturing test result summary in a single message
