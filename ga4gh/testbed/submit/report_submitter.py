@@ -1,3 +1,4 @@
+from re import sub
 import requests
 
 
@@ -15,5 +16,17 @@ class ReportSubmitter():
         '''
         header = {"GA4GH-TestbedReportSeriesId": series_id, "GA4GH-TestbedReportSeriesToken": series_token}
         submit_request = requests.post(url, headers=header ,json=report)
-        return submit_request.status_code
 
+        results = {
+            "status_code": submit_request.status_code,
+            "error_message": None,
+            "report_id": None
+        }
+
+        if submit_request.status_code == 200:
+            results["report_id"] = submit_request.json()["id"]
+        else:
+            if "message" in submit_request.json().keys():
+                results["error_message"] = submit_request.json()["message"]
+
+        return results
