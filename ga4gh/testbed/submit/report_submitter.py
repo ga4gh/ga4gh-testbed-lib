@@ -16,6 +16,10 @@ class ReportSubmitter():
             report - GA4GH report object
             url - URL of the testbed server
         '''
+
+        if type(report) != Report:
+            raise Exception()
+
         header = {"GA4GH-TestbedReportSeriesId": series_id, "GA4GH-TestbedReportSeriesToken": series_token}
         submit_request = requests.post(url, headers=header ,json=json.loads(report.to_json()))        
 
