@@ -20,20 +20,20 @@ submit_report_cases = [
         "http://localhost:4500/reports",
         200
     ),
-    #(
-    #    "1edb5213-52a2-434f-a7b8-b101fea8fb30",
-    #    "K5pLbwScVu8rEoLLj8pRy5Wv7EXTVahn",
-    #    "",
-    #    "http://localhost:4500/reports",
-    #    400
-    #),
-    #(
-    #    "1edb5213-52a2-434f-a7b8-b101fea8fb30",
-    #    "K5pLbwScVu8rEoLLj8pRy5Wv7EXTVahn",
-    #    {},
-    #    "http://localhost:4500/reports",
-    #    500
-    #),
+    (
+        "1edb5213-52a2-434f-a7b8-b101fea8fb30",
+        "K5pLbwScVu8rEoLLj8pRy5Wv7EXTVahn",
+        "",
+        "http://localhost:4500/reports",
+        400
+    ),
+    (
+        "1edb5213-52a2-434f-a7b8-b101fea8fb30",
+        "K5pLbwScVu8rEoLLj8pRy5Wv7EXTVahn",
+        {},
+        "http://localhost:4500/reports",
+        400
+    ),
     (
         "",
         "K5pLbwScVu8rEoLLj8pRy5Wv7EXTVahn",
