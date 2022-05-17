@@ -1,7 +1,8 @@
 import pytest
 from ga4gh.testbed.submit.report_submitter import ReportSubmitter
+from ga4gh.testbed.report.report import Report
 
-sample_report = {"schema_name":"ga4gh-testbed-report","schema_version":"0.1.0","testbed_name":"refget-compliance-suite","testbed_version":"","testbed_description":"","platform_name":"","platform_description":"","input_parameters":{},"start_time":"2022-03-22T17:45:37Z","end_time":"2022-03-22T17:46:32Z","status":"PASS","summary":{"unknown":0,"passed":49,"warned":0,"failed":0,"skipped":20},"phases":[]}
+sample_report = Report()
 
 submit_report_inputs = "series_id,series_token,report,url,status_code"
 submit_report_cases = [
@@ -31,7 +32,7 @@ submit_report_cases = [
         "K5pLbwScVu8rEoLLj8pRy5Wv7EXTVahn",
         {},
         "http://localhost:4500/reports",
-        500
+        400
     ),
     (
         "",
