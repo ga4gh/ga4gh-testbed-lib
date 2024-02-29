@@ -62,3 +62,7 @@ python -m pytest --cov
 
 ### v0.1.2
 * Test level entity now has a `message` attribute for capturing test result summary in a single message
+
+## Maintainers
+
+* GA4GH Tech Team [ga4gh-tech-team@ga4gh.org](mailto:ga4gh-tech-team@ga4gh.org)
