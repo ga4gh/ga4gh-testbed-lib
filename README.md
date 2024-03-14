@@ -57,6 +57,9 @@ python -m pytest --cov
 
 ## Changelog
 
+### v0.2.1
+* Accept json report from report object
+
 ### v0.2.0
 * Able to submit reports to Testbed API via standard `POST` request
 
