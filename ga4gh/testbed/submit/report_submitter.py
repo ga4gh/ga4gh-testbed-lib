@@ -1,4 +1,5 @@
 from re import sub
+import sys
 import requests
 import json
 from ga4gh.testbed.report.report import Report
@@ -30,7 +31,7 @@ class ReportSubmitter():
         json_report = json.loads(report.to_json())
         json_report['private'] = private_submit
 
-        header = {"GA4GH-TestbedReportSeriesId": series_id, "GA4GH-TestbedReportSeriesToken": series_token, "private": private_submit}
+        header = {"GA4GH-TestbedReportSeriesId": series_id, "GA4GH-TestbedReportSeriesToken": series_token}
         submit_request = requests.post(url, headers=header ,json=json_report)        
 
         results["status_code"] = submit_request.status_code
