@@ -1,11 +1,12 @@
 from re import sub
+import sys
 import requests
 import json
 from ga4gh.testbed.report.report import Report
 
 class ReportSubmitter():
 
-    def submit_report(series_id, series_token, report:Report, url="http://localhost:4500/reports"):
+    def submit_report(series_id, series_token, report:Report, url="http://localhost:4500/reports", private_submit=False):
         '''
         Submits a report to the GA4GH testbed api.
         
@@ -26,8 +27,11 @@ class ReportSubmitter():
             results["error_message"] = "Report submitted is not a GA4GH Report object"
             return results
 
+        json_report = json.loads(report.to_json())
+        json_report['private'] = private_submit
+
         header = {"GA4GH-TestbedReportSeriesId": series_id, "GA4GH-TestbedReportSeriesToken": series_token}
-        submit_request = requests.post(url, headers=header ,json=json.loads(report.to_json()))        
+        submit_request = requests.post(url, headers=header ,json=json_report)        
 
         results["status_code"] = submit_request.status_code
 
