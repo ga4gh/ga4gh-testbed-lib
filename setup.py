@@ -29,7 +29,7 @@ setuptools.setup(
     description="Python library for creating GA4GH testbed reports according to a harmonized, cross-workstream schema",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jb-adams/ga4gh-testbed-lib",
+    url="https://github.com/ga4gh/ga4gh-testbed-lib",
     package_data={'': ['web/*/*', 'schemas/*']},
     packages=setuptools.find_packages(),
     install_requires=install_requires,
