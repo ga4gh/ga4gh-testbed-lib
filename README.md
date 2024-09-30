@@ -57,6 +57,9 @@ python -m pytest --cov
 
 ## Changelog
 
+### v0.2.2
+* Optional private flag for submissions
+
 ### v0.2.1
 * Accept json report from report object
 
